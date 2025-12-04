@@ -1,0 +1,62 @@
+<?php
+
+function maxima_scripts()
+{
+    // CSS
+    wp_enqueue_style('bootstrap', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css', [], '5.3.2');
+    wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', [], '6.4.0');
+    wp_enqueue_style('maxima-style', get_stylesheet_uri(), array(), null, 'all');
+
+    // JS - USANDO A VERSÃO NATIVA DO JQUERY DO WORDPRESS
+    wp_enqueue_script('jquery'); // Carrega o jQuery do WordPress
+    wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js', array('jquery'), null, true);
+    
+    // JavaScript principal - DEPENDE do jQuery
+    wp_enqueue_script('maxima-main-js', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), '1.0.0', true);
+}
+
+add_action('wp_enqueue_scripts', 'maxima_scripts');
+
+function maxima_preload_resources() {
+    ?>
+    <!-- Preload do Font Awesome -->
+    <link rel="preload" as="font" href="<?php echo get_template_directory_uri(); ?>/assets/fonts/Nexa-XBold.woff2" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <?php
+}
+add_action('wp_head', 'maxima_preload_resources', 0);
+
+function maxima_config()
+{
+    register_nav_menus(
+        array(
+            'maxima_main_menu_left' => __('Menu Principal Esquerda', 'maxima'),
+            'maxima_main_menu_right' => __('Menu Principal Direita', 'maxima'),
+        )
+    );
+
+    // Adicionar suporte a post thumbnails
+    add_theme_support('post-thumbnails');
+
+    // Adicionar logo customizado no tema
+    add_theme_support('custom-logo', array(
+        'width' => 180,
+        'height' => 50,
+        'flex-height' => true,
+        'flex-width' => true
+    ));
+
+    add_theme_support('automatic-feed-links');
+    add_theme_support('html5', array(
+        'comment-list',
+        'comment-form',
+        'search-form',
+        'gallery',
+        'caption',
+        'style',
+        'script'
+    ));
+
+    add_theme_support('title-tag');
+}
+add_action('after_setup_theme', 'maxima_config');

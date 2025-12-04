@@ -1,0 +1,656 @@
+@font-face {
+    font-family: 'Nexa XBold';
+    src: url('./assets/fonts/Nexa-XBold.woff2') format('woff2'),
+         url('./assets/fonts/Nexa-XBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+.navbar-menu-left,
+.navbar-menu-right {
+    gap: 40px;
+    min-width: 0;
+    list-style: none
+}
+
+:root {
+    --color-primary: #c7a26b;
+    --color-dark: #252525;
+    --color-light: #ffffff;
+    --transition: 0.3s ease
+}
+
+.logo-text,
+.mobile-menu li a:hover,
+.navbar-menu-left a:hover,
+.navbar-menu-right a:hover {
+    color: var(--color-primary)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body {
+    font-family: Montserrat, sans-serif;
+    background-color: #fff;
+    color: var(--color-light);
+    overflow-x: hidden;
+    padding-top: 100px
+}
+
+#maxima-navbar {
+    background-color: var(--color-dark);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    z-index: 1001;
+    transition: all var(--transition)
+}
+
+#maxima-navbar.scrolled {
+    height: 70px;
+    background-color: var(--color-dark);
+    backdrop-filter: blur(10px)
+}
+
+.navbar-email {
+    width: 250px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px
+}
+
+.navbar-phone {
+    width: 250px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 20px
+}
+
+.navbar-menu-left a,
+.navbar-menu-right a,
+.navbar-email a,
+.navbar-phone a,
+.logo-text {
+    font-family: 'Nexa XBold', Montserrat, sans-serif;
+}
+
+.navbar-email a,
+.navbar-phone a {
+    color: var(--color-light);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    transition: all var(--transition);
+    padding: 8px 12px;
+    white-space: nowrap
+}
+
+.mobile-menu li a,
+.navbar-menu-left a,
+.navbar-menu-right a {
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all var(--transition);
+    text-decoration: none;
+    color: var(--color-light)
+}
+
+.navbar-email i,
+.navbar-phone i {
+    margin-right: 8px;
+    font-size: 12px;
+    min-width: 12px;
+    flex-shrink: 0
+}
+
+.navbar-menu-container {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 0;
+    height: 100%;
+    position: relative
+}
+
+.menu-center-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative
+}
+
+.navbar-menu-left {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    justify-content: flex-end
+}
+
+.nav-logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 40px;
+    position: relative;
+    z-index: 2
+}
+
+.navbar-logo {
+    display: block;
+    text-decoration: none;
+    line-height: 0;
+    text-align: center
+}
+
+.navbar-logo .custom-logo,
+.navbar-logo img {
+    height: 55px;
+    width: auto;
+    max-width: 200px;
+    display: block;
+    margin: 0 auto;
+    transition: all var(--transition)
+}
+
+.logo-text {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    display: block;
+    line-height: 1;
+    padding: 5px 10px
+}
+
+.navbar-menu-right {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    justify-content: flex-start
+}
+
+.navbar-menu-left li,
+.navbar-menu-right li {
+    position: relative;
+    margin: 0
+}
+
+.navbar-menu-left a,
+.navbar-menu-right a {
+    font-size: 14px;
+    font-weight: 300;
+    padding: 8px 0;
+    display: block;
+    white-space: nowrap
+}
+
+.navbar-menu-left a::after,
+.navbar-menu-right a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: width var(--transition)
+}
+
+.navbar-menu-left a:hover::after,
+.navbar-menu-right a:hover::after {
+    width: 100%
+}
+
+.nav-triangle {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 180px solid transparent;
+    border-right: 180px solid transparent;
+    border-top: 60px solid var(--color-dark);
+    pointer-events: none;
+    z-index: 1;
+    transition: all var(--transition)
+}
+
+#maxima-navbar.scrolled .nav-triangle {
+    bottom: -50px;
+    border-top: 50px solid var(--color-dark)
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+    background: 0 0;
+    border: none;
+    z-index: 1003;
+    position: relative
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 2px;
+    background-color: var(--color-primary);
+    display: block;
+    margin: 5px auto;
+    transition: all var(--transition)
+}
+
+.hamburger-active {
+    transform: rotate(45deg)
+}
+
+.hamburger-active .line:nth-child(2) {
+    opacity: 0
+}
+
+.hamburger-active .line:first-child {
+    transform: translateY(7px) rotate(0)
+}
+
+.hamburger-active .line:nth-child(3) {
+    transform: translateY(-7px) rotate(-90deg)
+}
+
+.menubar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+    height: 100vh;
+    padding: 80px 0 30px;
+    background: rgba(37, 37, 37, .99);
+    transition: .3s ease-in-out;
+    z-index: 1002;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, .3);
+    overflow-y: auto
+}
+
+.menubar.active {
+    left: 0
+}
+
+.mobile-logo {
+    display: none;
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(199, 162, 107, .3);
+    width: 80%
+}
+
+.mobile-logo a {
+    display: inline-block;
+    text-decoration: none
+}
+
+.mobile-logo .custom-logo,
+.mobile-logo img {
+    height: 50px;
+    width: auto;
+    max-width: 150px;
+    margin: 0 auto
+}
+
+.mobile-logo .logo-text {
+    font-size: 22px;
+    letter-spacing: 3px
+}
+
+.mobile-menu {
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    text-align: center
+}
+
+.mobile-menu li {
+    margin-bottom: 32px
+}
+
+.mobile-menu li a {
+    font-size: 16px;
+    padding: 12px 20px;
+    display: block
+}
+
+.mobile-menu li a:hover {
+    padding-left: 30px
+}
+
+.mobile-contact {
+    padding-top: 20px;
+    border-top: 2px solid rgba(199, 162, 107, .3);
+    text-align: center;
+    width: 80%
+}
+
+.mobile-email,
+.mobile-phone {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    padding: 8px 0;
+    transition: color var(--transition)
+}
+
+.mobile-email i,
+.mobile-phone i {
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+    font-size: 16px
+}
+
+.mobile-email:hover,
+.mobile-phone:hover {
+    color: var(--color-light)
+}
+
+@media screen and (max-width:1280px) {
+
+    .navbar-email,
+    .navbar-phone {
+        width: 220px
+    }
+
+    .navbar-email {
+        padding-left: 15px
+    }
+
+    .navbar-phone {
+        padding-right: 15px
+    }
+
+    .menu-center-wrapper {
+        max-width: 800px
+    }
+
+    .navbar-menu-left,
+    .navbar-menu-right {
+        gap: 30px
+    }
+
+    .nav-logo {
+        margin: 0 30px
+    }
+
+    .navbar-menu-left a,
+    .navbar-menu-right a {
+        font-size: 13px;
+        letter-spacing: 1.5px
+    }
+
+    .navbar-logo .custom-logo,
+    .navbar-logo img {
+        height: 50px;
+        max-width: 180px
+    }
+
+    .logo-text {
+        font-size: 24px;
+        letter-spacing: 3px
+    }
+
+    .nav-triangle {
+        border-left: 160px solid transparent;
+        border-right: 160px solid transparent
+    }
+}
+
+@media screen and (max-width:1100px) {
+
+    .navbar-email,
+    .navbar-phone {
+        width: 200px
+    }
+
+    .navbar-email a,
+    .navbar-phone a {
+        font-size: 12px;
+        padding: 8px 10px
+    }
+
+    .menu-center-wrapper {
+        max-width: 700px
+    }
+
+    .navbar-menu-left,
+    .navbar-menu-right {
+        gap: 25px
+    }
+
+    .nav-logo {
+        margin: 0 25px
+    }
+
+    .navbar-menu-left a,
+    .navbar-menu-right a {
+        font-size: 12px;
+        letter-spacing: 1px
+    }
+
+    .navbar-logo .custom-logo,
+    .navbar-logo img {
+        height: 45px;
+        max-width: 160px
+    }
+
+    .logo-text {
+        font-size: 22px;
+        letter-spacing: 2.5px
+    }
+
+    .nav-triangle {
+        border-left: 140px solid transparent;
+        border-right: 140px solid transparent
+    }
+}
+
+@media screen and (max-width:992px) {
+    #maxima-navbar {
+        padding: 0 15px;
+        justify-content: space-between;
+        height: 70px
+    }
+
+    .navbar-email,
+    .navbar-menu-container,
+    .navbar-phone {
+        display: none
+    }
+
+    .hamburger {
+        display: block;
+        margin-left: auto;
+        order: 2
+    }
+
+    .nav-logo {
+        display: flex;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        order: 1
+    }
+
+    .mobile-logo,
+    .nav-triangle {
+        display: block
+    }
+
+    .navbar-logo .custom-logo,
+    .navbar-logo img {
+        height: 40px
+    }
+
+    .logo-text {
+        font-size: 20px;
+        letter-spacing: 2px
+    }
+
+    .nav-triangle {
+        bottom: -40px;
+        border-left: 120px solid transparent;
+        border-right: 120px solid transparent;
+        border-top: 40px solid var(--color-dark)
+    }
+
+    #maxima-navbar.scrolled .nav-triangle {
+        bottom: -35px;
+        border-top: 35px solid var(--color-dark)
+    }
+}
+
+@media screen and (max-width:768px) {
+    .hamburger {
+        padding: 8px
+    }
+
+    .navbar-logo .custom-logo,
+    .navbar-logo img {
+        height: 35px
+    }
+
+    .logo-text {
+        font-size: 18px
+    }
+
+    .nav-triangle {
+        border-left: 100px solid transparent;
+        border-right: 100px solid transparent;
+        border-top: 40px solid var(--color-dark)
+    }
+
+    #maxima-navbar.scrolled .nav-triangle {
+        bottom: -30px;
+        border-top: 30px solid var(--color-dark)
+    }
+}
+
+@media screen and (max-width:480px) {
+    .menubar {
+        width: 80%;
+        left: -80%;
+        padding: 80px 0 40px
+    }
+
+    .menubar.active {
+        left: 0
+    }
+
+    .mobile-menu li {
+        margin-bottom: 25px
+    }
+
+    .mobile-menu li a {
+        font-size: 14px;
+        padding: 10px 15px
+    }
+
+    .mobile-contact {
+        width: 85%
+    }
+
+    .nav-triangle {
+        border-left: 80px solid transparent;
+        border-right: 80px solid transparent
+    }
+
+    #maxima-navbar.scrolled .nav-triangle {
+        bottom: -25px;
+        border-top: 25px solid var(--color-dark)
+    }
+}
+
+@media screen and (max-width:375px) {
+    #maxima-navbar {
+        padding: 0 10px
+    }
+
+    .navbar-logo .custom-logo,
+    .navbar-logo img {
+        height: 30px
+    }
+
+    .logo-text {
+        font-size: 16px;
+        letter-spacing: 1px
+    }
+
+    .menubar {
+        width: 85%;
+        left: -85%;
+        padding: 70px 0 30px
+    }
+
+    .mobile-menu li {
+        margin-bottom: 20px
+    }
+
+    .mobile-menu li a {
+        font-size: 13px;
+        letter-spacing: 1px
+    }
+
+    .hamburger {
+        padding: 5px
+    }
+
+    .hamburger .line {
+        width: 22px
+    }
+
+    .nav-triangle {
+        border-left: 70px solid transparent;
+        border-right: 70px solid transparent
+    }
+
+    #maxima-navbar.scrolled .nav-triangle {
+        bottom: -20px;
+        border-top: 20px solid var(--color-dark)
+    }
+}
