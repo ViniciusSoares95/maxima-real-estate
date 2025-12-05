@@ -67,6 +67,19 @@
             </a>
         </div>
 
+        <!-- Logo para mobile (visível apenas em mobile) -->
+        <div class="mobile-header-logo">
+            <a href="<?php echo esc_url(home_url('/')); ?>" class="navbar-logo">
+                <?php
+                if (has_custom_logo()) {
+                    the_custom_logo();
+                } else {
+                    echo '<span class="logo-text">MAXIMA</span>';
+                }
+                ?>
+            </a>
+        </div>
+
         <!-- Botão hamburguer para mobile -->
         <div class="hamburger">
             <span class="line"></span>
@@ -159,13 +172,6 @@
                 'fallback_cb' => false,
             ));
             ?>
-        <?php else : ?>
-            <!-- Fallback se não houver nenhum menu registrado -->
-            <ul class="mobile-menu">
-                <li><a href="<?php echo esc_url(home_url('/')); ?>">Início</a></li>
-                <li><a href="<?php echo esc_url(home_url('/sobre')); ?>">Sobre</a></li>
-                <li><a href="<?php echo esc_url(home_url('/contato')); ?>">Contato</a></li>
-            </ul>
         <?php endif; ?>
 
         <!-- Contato mobile -->

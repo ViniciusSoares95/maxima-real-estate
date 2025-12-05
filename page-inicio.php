@@ -1,92 +1,108 @@
 <?php
-/*
-Template Name: Página Serviços
-*/
 get_header();
 ?>
+<main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background"></div>
 
-<!-- Hero Section -->
-
-<section class="hero-section" id="home">
-    <div class="hero-content">
-        <h1 class="hero-title" data-aos="fade-up">INVESTIMENTOS<br>IMOBILIÁRIOS</h1>
-        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">DE ALTO PADRÃO</p>
-        
-        <div class="discover-box" data-aos="fade-up" data-aos-delay="400">
-            <h2>Descubra</h2>
-            <p><strong>um mundo de oportunidades<br>exclusivas e rentáveis.</strong></p>
-            <p style="font-size: 0.9rem; margin-top: 20px;">O setor de investimentos de propriedades e espaços físicos<br>comerciais é uma opção viável e uma tendência em<br>crescimento. Visite nosso site para explorar as principais<br>características do segmento.</p>
-        </div>
-    </div>
-</section>
-
-<!-- Services Section -->
-<!--<section class="services-section" id="servicos">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4" data-aos="fade-up">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>Built To Suit</h3>
-                    <p class="subtitle">(SLB)</p>
-                    <p>Projeto customizado para operação de negócios em imóveis de alta padrão, com garantias de integração.</p>
+        <div class="hero-content">
+            <div class="container">
+                <!-- Título Principal -->
+                <div class="hero-title-section text-center" data-aos="fade-up">
+                    <h1 class="hero-title">
+                        INVESTIMENTOS<br>IMOBILIÁRIOS EM MARINGÁ
+                    </h1>
+                    <p class="hero-subtitle" data-aos-delay="200">
+                        DE ALTO PADRÃO
+                    </p>
                 </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-handshake"></i>
+
+                <!-- Descrição -->
+                <div class="hero-description-section text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="description-box">
+                        <p class="description-text">
+                            Descubra um mundo de oportunidades exclusivas e rentáveis. <br>
+                            Junte-se à nossa elite de investidores e esteja à frente,
+                            aproveitando oportunidades únicas que moldam o mercado
+                            e estabelecem <span>novos padrões de excelência.</span>
+                        </p>
                     </div>
-                    <h3>Sale & Leaseback</h3>
-                    <p class="subtitle">(SLB)</p>
-                    <p>Operações de investimento em imóveis já consolidados, nos quais a empresa vende o imóvel e permanece como locatária, com retorno de investimento garantido de até 8% anual, crescente até 180%.</p>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Imóveis com Renda</h3>
-                    <p>Locação de imóveis comerciais para médium, médios, assim como para imóveis residenciais e imóveis de padrão médio com valor superior a R$ 500 mil, com taxa de retorno entre 7% e 9,5%.</p>
                 </div>
             </div>
         </div>
-        <div class="row mt-4">
-            <div class="col-md-4" data-aos="fade-up">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-gavel"></i>
+
+        <!-- Triângulo -->
+        <div class="hero-triangle"></div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="servicos">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Built To Suit</h3>
+                        <p class="subtitle">(SLB)</p>
+                        <p>Projeto customizado para operação de negócios em imóveis de alta padrão, com garantias de integração.</p>
                     </div>
-                    <h3>Leilões</h3>
-                    <p>Gestão de imóveis recuperados de dívidas, orientados para investimento de repasses.</p>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Sale & Leaseback</h3>
+                        <p class="subtitle">(SLB)</p>
+                        <p>Operações de investimento em imóveis já consolidados, nos quais a empresa vende o imóvel e permanece como locatária, com retorno de investimento garantido de até 8% anual, crescente até 180%.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Imóveis com Renda</h3>
+                        <p>Locação de imóveis comerciais para médium, médios, assim como para imóveis residenciais e imóveis de padrão médio com valor superior a R$ 500 mil, com taxa de retorno entre 7% e 9,5%.</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-warehouse"></i>
+            <div class="row mt-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h3>Leilões</h3>
+                        <p>Gestão de imóveis recuperados de dívidas, orientados para investimento de repasses.</p>
                     </div>
-                    <h3>Loteamentos</h3>
-                    <p>Projetos de loteamentos com grande estrutura de equipamentos para uso comercial e residencial, seguro e promissor para investimento.</p>
                 </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-globe"></i>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                        <h3>Loteamentos</h3>
+                        <p>Projetos de loteamentos com grande estrutura de equipamentos para uso comercial e residencial, seguro e promissor para investimento.</p>
                     </div>
-                    <h3>Investimentos<br>no Exterior</h3>
-                    <p>Oportunidades de investimento em imóveis comerciais e residenciais em grandes países, especialmente no mercado norte-americano, com retornos de investimento e segurança até 8%.</p>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Investimentos<br>no Exterior</h3>
+                        <p>Oportunidades de investimento em imóveis comerciais e residenciais em grandes países, especialmente no mercado norte-americano, com retornos de investimento e segurança até 8%.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- About Section 
+    <!-- About Section 
 <section class="about-section" id="sobre">
     <div class="container-fluid">
         <div class="row align-items-center">
@@ -175,4 +191,6 @@ get_header();
     </div>
 </section>
 --->
+</main>
+
 <?php get_footer(); ?>

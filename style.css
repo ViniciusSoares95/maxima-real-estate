@@ -1,12 +1,26 @@
 @font-face {
     font-family: 'Nexa XBold';
     src: url('./assets/fonts/Nexa-XBold.woff2') format('woff2'),
-         url('./assets/fonts/Nexa-XBold.woff') format('woff');
-    font-weight: 800;
+        url('./assets/fonts/Nexa-XBold.woff') format('woff');
     font-style: normal;
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Nexa black';
+    src: url('./assets/fonts/NexaBlack.woff2') format('woff2'),
+        url('./assets/fonts/NexaBlack.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nexa Regular';
+    src: url('./assets/fonts/Nexa-Regular.woff2') format('woff2'),
+        url('./assets/fonts/Nexa-Regular.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+}
 
 .navbar-menu-left,
 .navbar-menu-right {
@@ -36,16 +50,13 @@
 }
 
 body {
-    font-family: Montserrat, sans-serif;
-    background-color: #fff;
     color: var(--color-light);
     overflow-x: hidden;
-    padding-top: 100px
 }
 
 #maxima-navbar {
     background-color: var(--color-dark);
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -55,12 +66,6 @@ body {
     padding: 0;
     z-index: 1001;
     transition: all var(--transition)
-}
-
-#maxima-navbar.scrolled {
-    height: 70px;
-    background-color: var(--color-dark);
-    backdrop-filter: blur(10px)
 }
 
 .navbar-email {
@@ -230,6 +235,39 @@ body {
     width: 100%
 }
 
+/* Logo para header mobile */
+.mobile-header-logo {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.mobile-header-logo .navbar-logo {
+    display: block;
+}
+
+.mobile-header-logo .custom-logo,
+.mobile-header-logo img {
+    height: 35px;
+    width: auto;
+    max-width: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+.mobile-header-logo .logo-text {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--color-light);
+    display: block;
+    line-height: 1;
+}
+
 .nav-triangle {
     position: absolute;
     bottom: -60px;
@@ -242,12 +280,6 @@ body {
     border-top: 60px solid var(--color-dark);
     pointer-events: none;
     z-index: 1;
-    transition: all var(--transition)
-}
-
-#maxima-navbar.scrolled .nav-triangle {
-    bottom: -50px;
-    border-top: 50px solid var(--color-dark)
 }
 
 .hamburger {
@@ -388,8 +420,153 @@ body {
     color: var(--color-light)
 }
 
-@media screen and (max-width:1280px) {
+/* Hero Section */
+.hero-section {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
 
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('./assets/images/BackgroundHeroDesktop.webp') center/cover no-repeat;
+    z-index: -1;
+}
+
+.hero-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Título Principal */
+.hero-title-section {
+    margin-bottom: 40px;
+}
+
+.hero-title {
+    font-family: 'Nexa black', Montserrat, sans-serif;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.hero-subtitle {
+    font-family: 'Nexa black', Montserrat, sans-serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    letter-spacing: 6px;
+    color: var(--color-light);
+    text-transform: uppercase;
+}
+
+/* Descrição */
+.hero-description-section {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.description-text {
+    font-family: 'Nexa Regular', Montserrat, sans-serif;
+    font-size: 19px;
+    line-height: 1.8;
+    color: var(--color-light);
+    margin: 0;
+}
+
+.description-text span {
+    color: var(--color-primary);
+}
+
+/* Triângulo */
+.hero-triangle {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 180px solid transparent;
+    border-right: 180px solid transparent;
+    border-bottom: 60px solid var(--color-dark);
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+/* SERVICES HERO */
+/* Services Section */
+.services-section {
+    padding: 100px 0;
+    background-color: var(--color-dark);
+    position: relative;
+    z-index: 0;
+}
+
+.service-card {
+    background: rgba(199, 162, 107, 0.05);
+    border: 1px solid rgba(199, 162, 107, 0.2);
+    padding: 40px 30px;
+    margin: 20px 0;
+    transition: all 0.3s;
+    height: 100%;
+}
+
+.service-card:hover {
+    background: rgba(199, 162, 107, 0.1);
+    transform: translateY(-5px);
+    border-color: rgba(199, 162, 107, 0.5);
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(199, 162, 107, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #c7a26b;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.service-card .subtitle {
+    font-size: 0.9rem;
+    color: #c7a26b;
+    margin-bottom: 15px;
+    font-weight: 400;
+}
+
+.service-card p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #cccccc;
+}
+
+/* 1280px */
+@media screen and (max-width:1280px) {
+    /* Navbar mantém igual */
     .navbar-email,
     .navbar-phone {
         width: 220px
@@ -437,10 +614,35 @@ body {
         border-left: 160px solid transparent;
         border-right: 160px solid transparent
     }
+
+    /* Hero Section Atualizada */
+    .hero-section {
+        min-height: 600px;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.6rem;
+        letter-spacing: 4px;
+    }
+
+    .description-text {
+        font-size: 1.1rem;
+    }
+
+    .hero-triangle {
+        border-left: 160px solid transparent;
+        border-right: 160px solid transparent;
+        border-bottom: 53.33px solid var(--color-dark);
+    }
 }
 
+/* 1100px */
 @media screen and (max-width:1100px) {
-
+    /* Navbar mantém igual */
     .navbar-email,
     .navbar-phone {
         width: 200px
@@ -486,12 +688,37 @@ body {
         border-left: 140px solid transparent;
         border-right: 140px solid transparent
     }
+
+    .hero-section {
+        min-height: 550px;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        letter-spacing: 5px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+    }
+
+    .description-text {
+        font-size: 1.05rem;
+    }
+
+    .hero-triangle {
+        border-left: 140px solid transparent;
+        border-right: 140px solid transparent;
+        border-bottom: 46.67px solid var(--color-dark); /* 140/180 * 60 */
+    }
 }
 
+/* 992px */
 @media screen and (max-width:992px) {
     #maxima-navbar {
         padding: 0 15px;
-        justify-content: space-between;
+        justify-content: flex-end;
         height: 70px
     }
 
@@ -501,24 +728,26 @@ body {
         display: none
     }
 
+    .mobile-header-logo {
+        display: block;
+    }
+
     .hamburger {
         display: block;
-        margin-left: auto;
-        order: 2
+        margin-left: 0;
+        margin-right: 10px;
+        order: 2;
+        position: relative;
+        z-index: 1003;
     }
 
     .nav-logo {
-        display: flex;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        margin: 0;
-        order: 1
+        display: none;
     }
 
     .mobile-logo,
-    .nav-triangle {
+    .nav-triangle,
+    .hero-triangle {
         display: block
     }
 
@@ -539,15 +768,53 @@ body {
         border-top: 40px solid var(--color-dark)
     }
 
-    #maxima-navbar.scrolled .nav-triangle {
-        bottom: -35px;
-        border-top: 35px solid var(--color-dark)
+    .hero-section {
+        padding: 100px 20px 60px;
+        min-height: auto;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+        letter-spacing: 4px;
+        margin-bottom: 15px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.4rem;
+        letter-spacing: 3px;
+        margin-bottom: 30px;
+    }
+
+    .description-box {
+        padding: 25px 30px;
+    }
+
+    .description-text {
+        font-size: 1rem;
+    }
+
+    .hero-triangle {
+        border-left: 120px solid transparent;
+        border-right: 120px solid transparent;
+        border-bottom: 40px solid var(--color-dark);
+        bottom: 0;
     }
 }
 
+/* 768px */
 @media screen and (max-width:768px) {
     .hamburger {
         padding: 8px
+    }
+
+    .mobile-header-logo .custom-logo,
+    .mobile-header-logo img {
+        height: 30px;
+    }
+
+    .mobile-header-logo .logo-text {
+        font-size: 16px;
+        letter-spacing: 2px;
     }
 
     .navbar-logo .custom-logo,
@@ -565,12 +832,28 @@ body {
         border-top: 40px solid var(--color-dark)
     }
 
-    #maxima-navbar.scrolled .nav-triangle {
-        bottom: -30px;
-        border-top: 30px solid var(--color-dark)
+    .hero-title {
+        font-size: 2.3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+        margin-bottom: 25px;
+    }
+    
+    .description-text {
+        font-size: 0.95rem;
+    }
+    
+    .hero-triangle {
+        border-left: 100px solid transparent;
+        border-right: 100px solid transparent;
+        border-bottom: 33.33px solid var(--color-dark); /* 100/180 * 60 */
     }
 }
 
+/* 480px */
 @media screen and (max-width:480px) {
     .menubar {
         width: 80%;
@@ -595,20 +878,65 @@ body {
         width: 85%
     }
 
-    .nav-triangle {
-        border-left: 80px solid transparent;
-        border-right: 80px solid transparent
+    .mobile-header-logo .custom-logo,
+    .mobile-header-logo img {
+        height: 28px;
     }
 
-    #maxima-navbar.scrolled .nav-triangle {
-        bottom: -25px;
-        border-top: 25px solid var(--color-dark)
+    .mobile-header-logo .logo-text {
+        font-size: 15px;
+        letter-spacing: 1.5px;
+    }
+
+    .nav-triangle {
+        border-left: 80px solid transparent;
+        border-right: 80px solid transparent;
+        border-top: 40px solid var(--color-dark);
+    }
+
+    /* Hero Section Atualizada */
+    .hero-section {
+        min-height: 70vh;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 20px;
+    }
+
+    .description-text {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .hero-triangle {
+        border-left: 80px solid transparent;
+        border-right: 80px solid transparent;
+        border-bottom: 26.67px solid var(--color-dark); /* 80/180 * 60 */
     }
 }
 
+/* 375px */
 @media screen and (max-width:375px) {
     #maxima-navbar {
         padding: 0 10px
+    }
+
+    .mobile-header-logo .custom-logo,
+    .mobile-header-logo img {
+        height: 25px;
+    }
+
+    .mobile-header-logo .logo-text {
+        font-size: 14px;
+        letter-spacing: 1px;
     }
 
     .navbar-logo .custom-logo,
@@ -646,11 +974,35 @@ body {
 
     .nav-triangle {
         border-left: 70px solid transparent;
-        border-right: 70px solid transparent
+        border-right: 70px solid transparent;
+        border-top: 40px solid var(--color-dark);
     }
 
-    #maxima-navbar.scrolled .nav-triangle {
-        bottom: -20px;
-        border-top: 20px solid var(--color-dark)
+    /* Hero Section Atualizada */
+    .hero-section {
+        padding: 70px 8px 30px;
+    }
+
+    .hero-title {
+        font-size: 1.6rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+
+    .description-box {
+        padding: 15px 12px;
+    }
+
+    .description-text {
+        font-size: 0.85rem;
+    }
+
+    .hero-triangle {
+        border-left: 70px solid transparent;
+        border-right: 70px solid transparent;
+        border-bottom: 23.33px solid var(--color-dark); /* 70/180 * 60 */
     }
 }
