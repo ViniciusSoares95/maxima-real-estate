@@ -11,7 +11,7 @@ get_header();
                 <!-- Título Principal -->
                 <div class="hero-title-section text-center" data-aos="fade-up">
                     <h1 class="hero-title">
-                        INVESTIMENTOS<br>IMOBILIÁRIOS EM MARINGÁ
+                        Investimentos Imobiliários com Alta Rentabilidade e Segurança
                     </h1>
                     <p class="hero-subtitle" data-aos-delay="200">
                         DE ALTO PADRÃO
@@ -22,10 +22,10 @@ get_header();
                 <div class="hero-description-section text-center" data-aos="fade-up" data-aos-delay="400">
                     <div class="description-box">
                         <p class="description-text">
-                            Descubra um mundo de oportunidades exclusivas e rentáveis. <br>
-                            Junte-se à nossa elite de investidores e esteja à frente,
-                            aproveitando oportunidades únicas que moldam o mercado
-                            e estabelecem <span>novos padrões de excelência.</span>
+                            Descubra um mundo de <strong>investimentos imobiliários exclusivos e rentáveis</strong>. <br>
+                            Junte-se à nossa elite de investidores e esteja à frente, aproveitando <strong>oportunidades únicas <br>
+                            em ativos premium</strong> que moldam o mercado e estabelecem <strong> <span>novos padrões de excelência</span></strong>.
+
                         </p>
                     </div>
                 </div>
@@ -39,63 +39,90 @@ get_header();
     <!-- Services Section -->
     <section class="services-section" id="servicos">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4" data-aos="fade-up">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-building"></i>
-                        </div>
-                        <h3>Built To Suit</h3>
-                        <p class="subtitle">(SLB)</p>
-                        <p>Projeto customizado para operação de negócios em imóveis de alta padrão, com garantias de integração.</p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-handshake"></i>
-                        </div>
-                        <h3>Sale & Leaseback</h3>
-                        <p class="subtitle">(SLB)</p>
-                        <p>Operações de investimento em imóveis já consolidados, nos quais a empresa vende o imóvel e permanece como locatária, com retorno de investimento garantido de até 8% anual, crescente até 180%.</p>
-                    </div>
-                </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3>Imóveis com Renda</h3>
-                        <p>Locação de imóveis comerciais para médium, médios, assim como para imóveis residenciais e imóveis de padrão médio com valor superior a R$ 500 mil, com taxa de retorno entre 7% e 9,5%.</p>
-                    </div>
-                </div>
+            <!-- Título da Seção -->
+            <div class="services-header text-center" data-aos="fade-up">
+                <h2 class="services-title">Soluções em Investimentos <br> Imobiliários Premium</h2>
+                <p class="services-subtitle">Mais de 10 anos de excelência oferecendo soluções rentáveis e sustentáveis para investidores exigentes.</p>
             </div>
-            <div class="row mt-4">
-                <div class="col-md-4" data-aos="fade-up">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-gavel"></i>
+
+            <div class="row">
+                <!-- Card 1: Built To Suit -->
+                <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
+                    <div class="service-card-wrapper">
+                        <div class="service-icon-external">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/BuiltToSuit.webp" alt="Built To Suit" class="service-icon-img">
                         </div>
-                        <h3>Leilões</h3>
-                        <p>Gestão de imóveis recuperados de dívidas, orientados para investimento de repasses.</p>
+                        <div class="service-card">
+                            <h3>Built To Suit</h3>
+                            <p class="service-subtitle">(SLB)</p>
+                            <p class="service-description">Projetos personalizados para construção de imóveis conforme as necessidades do locatário, com contratos de longo prazo.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-warehouse"></i>
+
+                <!-- Card 2: Sale & Leaseback -->
+                <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card-wrapper">
+                        <div class="service-icon-external">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/Sale&Leaseback.webp" alt="Sale & Leaseback" class="service-icon-img">
                         </div>
-                        <h3>Loteamentos</h3>
-                        <p>Projetos de loteamentos com grande estrutura de equipamentos para uso comercial e residencial, seguro e promissor para investimento.</p>
+                        <div class="service-card">
+                            <h3>Sale & Leaseback</h3>
+                            <p class="service-subtitle">(SLB)</p>
+                            <p class="service-description">Oportunidades de investimento em imóveis comerciais e residenciais em diversos países, principalmente EUA e Europa, através de ações de empresas de incorporação, construtoras, ou REITs.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-globe"></i>
+
+                <!-- Card 3: Imóveis com Renda -->
+                <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card-wrapper">
+                        <div class="service-icon-external">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/ImoveisComRenda.webp" alt="Imóveis com Renda" class="service-icon-img">
                         </div>
-                        <h3>Investimentos<br>no Exterior</h3>
-                        <p>Oportunidades de investimento em imóveis comerciais e residenciais em grandes países, especialmente no mercado norte-americano, com retornos de investimento e segurança até 8%.</p>
+                        <div class="service-card">
+                            <h3>Imóveis com Renda</h3>
+                            <p class="service-description">Locação de imóveis comerciais para instituições sólidas, como instituições bancárias e grandes varejistas, com contratos de longo prazo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Leilões -->
+                <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up">
+                    <div class="service-card-wrapper">
+                        <div class="service-icon-external">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/Leiloes.webp" alt="Leilões" class="service-icon-img">
+                        </div>
+                        <div class="service-card">
+                            <h3>Leilões</h3>
+                            <p class="service-description">Venda de imóveis recuperados de dívidas, com assessoria completa no processo de compra e legalização.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Loteamentos -->
+                <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card-wrapper">
+                        <div class="service-icon-external">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/Loteamentos.webp" alt="Loteamentos" class="service-icon-img">
+                        </div>
+                        <div class="service-card">
+                            <h3>Loteamentos</h3>
+                            <p class="service-description">Prospecção de áreas para loteamentos e vendas de lotes, com um levantamento completo de áreas possíveis de urbanização.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Investimentos no Exterior -->
+                <div class="col-md-6 col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card-wrapper">
+                        <div class="service-icon-external">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/InvestimentosNoExterior.webp" alt="Investimentos no Exterior" class="service-icon-img">
+                        </div>
+                        <div class="service-card">
+                            <h3>Investimentos<br>no Exterior</h3>
+                            <p class="service-description">Oportunidades de investimento em imóveis comerciais e residenciais em diversos países, principalmente EUA e Europa, através de ações de empresas de incorporação, construtoras, ou REITs.</p>
+                        </div>
                     </div>
                 </div>
             </div>
