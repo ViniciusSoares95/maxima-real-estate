@@ -52,7 +52,7 @@ get_header();
                         <div class="service-icon-external">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/BuiltToSuit.webp" alt="Built To Suit" class="service-icon-img">
                         </div>
-                        <div class="service-card">
+                        <div class="service-card d-flex flex-column justify-content-center">
                             <h3>Built To Suit</h3>
                             <p class="service-subtitle">(SLB)</p>
                             <p class="service-description">Projetos personalizados para construção de imóveis conforme as necessidades do locatário, com contratos de longo prazo.</p>
@@ -66,7 +66,7 @@ get_header();
                         <div class="service-icon-external">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/Sale&Leaseback.webp" alt="Sale & Leaseback" class="service-icon-img">
                         </div>
-                        <div class="service-card">
+                        <div class="service-card d-flex flex-column justify-content-center">
                             <h3>Sale & Leaseback</h3>
                             <p class="service-subtitle">(SLB)</p>
                             <p class="service-description">Oportunidades de investimento em imóveis comerciais e residenciais em diversos países, principalmente EUA e Europa, através de ações de empresas de incorporação, construtoras, ou REITs.</p>
@@ -80,7 +80,7 @@ get_header();
                         <div class="service-icon-external">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/ImoveisComRenda.webp" alt="Imóveis com Renda" class="service-icon-img">
                         </div>
-                        <div class="service-card">
+                        <div class="service-card d-flex flex-column justify-content-center">
                             <h3>Imóveis com Renda</h3>
                             <p class="service-description">Locação de imóveis comerciais para instituições sólidas, como instituições bancárias e grandes varejistas, com contratos de longo prazo.</p>
                         </div>
@@ -93,7 +93,7 @@ get_header();
                         <div class="service-icon-external">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/Leiloes.webp" alt="Leilões" class="service-icon-img">
                         </div>
-                        <div class="service-card">
+                        <div class="service-card d-flex flex-column justify-content-center">
                             <h3>Leilões</h3>
                             <p class="service-description">Venda de imóveis recuperados de dívidas, com assessoria completa no processo de compra e legalização.</p>
                         </div>
@@ -106,7 +106,7 @@ get_header();
                         <div class="service-icon-external">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/Loteamentos.webp" alt="Loteamentos" class="service-icon-img">
                         </div>
-                        <div class="service-card">
+                        <div class="service-card d-flex flex-column justify-content-center">
                             <h3>Loteamentos</h3>
                             <p class="service-description">Prospecção de áreas para loteamentos e vendas de lotes, com um levantamento completo de áreas possíveis de urbanização.</p>
                         </div>
@@ -119,7 +119,7 @@ get_header();
                         <div class="service-icon-external">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/InvestimentosNoExterior.webp" alt="Investimentos no Exterior" class="service-icon-img">
                         </div>
-                        <div class="service-card">
+                        <div class="service-card d-flex flex-column justify-content-center">
                             <h3>Investimentos<br>no Exterior</h3>
                             <p class="service-description">Oportunidades de investimento em imóveis comerciais e residenciais em diversos países, principalmente EUA e Europa, através de ações de empresas de incorporação, construtoras, ou REITs.</p>
                         </div>
@@ -129,7 +129,7 @@ get_header();
         </div>
     </section>
 
-    <!-- About Section 
+
 <section class="about-section" id="sobre">
     <div class="container-fluid">
         <div class="row align-items-center">
