@@ -129,24 +129,34 @@ get_header();
         </div>
     </section>
 
-
-<section class="about-section" id="sobre">
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <div class="col-lg-6" data-aos="fade-right">
-                <div class="about-content px-5">
-                    <h2>Exclusividade,<br><span>Gestão</span><br>e Rentabilidade</h2>
-                    <p>A trajetória da Máxima Real Estate é uma narrativa de visão, expertise e comprometimento inabalável com a excelência. Fundada por sócios com vasta experiência no segmento imobiliário e competências administrativas de destaque, a empresa nasceu com o propósito de criar um nicho exclusivo no mercado para investidores exigentes. O diferencial da Máxima Real Estate reside na oferta de produtos e serviços meticulosamente selecionados, projetados para atender às necessidades de um público que busca mais do que apenas retorno financeiro, buscando segurança, inovação e sustentabilidade em seus investimentos.</p>
+   <section class="about-section" id="sobre">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <!-- Coluna do texto com fundo escuro que invade a imagem -->
+                <div class="col-lg-7 about-text-column">
+                    <div class="about-content">
+                        <h2>Exclusividade,<br>Gestão<br>e Rentabilidade</h2>
+                        <p>A trajetória da Máxima Real Estate é uma narrativa de visão, expertise e comprometimento inabalável com a excelência. 
+                            Fundada por sócios com vasta experiência no segmento imobiliário e competências administrativas de destaque, 
+                            a empresa nasceu com o propósito de criar um nicho exclusivo no mercado para investidores exigentes. 
+                            <strong>O diferencial da Máxima Real Estate reside na oferta de produtos e serviços meticulosamente selecionados</strong>, 
+                            projetados para atender às necessidades de um público que busca mais do que apenas retorno financeiro: 
+                            <strong class="destaqueCor">busca segurança, inovação e sustentabilidade em seus investimentos.</strong></p>
+                    </div>
+                </div>
+                
+                <!-- Coluna da imagem -->
+                <div class="about-image-column">
+                    <div class="about-image"></div>
                 </div>
             </div>
-            <div class="col-lg-6 p-0" data-aos="fade-left">
-                <div class="about-image"></div>
-            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Portfolio Section
+    <!-- Triângulo -->
+        <div class="about-section-triangle"></div>
+
+<!-- Portfolio Section -->
 <section class="portfolio-section">
     <div class="container">
         <h2>Faça parte do nosso portfólio de elite</h2>

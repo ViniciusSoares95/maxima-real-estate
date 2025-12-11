@@ -1,20 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('MAXIMA Website - Menu inicializado');
     
     // ===== ELEMENTOS =====
     const navbar = document.getElementById('maxima-navbar');
     const hamburger = document.querySelector('.hamburger');
     const menubar = document.querySelector('.menubar');
-    
-    console.log('Elementos encontrados:');
-    console.log('- Navbar:', navbar);
-    console.log('- Hamburguer:', hamburger);
-    console.log('- Menubar:', menubar);
-    
+     
     // ===== TOGGLE MENU MOBILE =====
     if (hamburger && menubar) {
         hamburger.addEventListener('click', function(e) {
-            console.log('Hamburguer clicado');
             e.preventDefault();
             e.stopPropagation();
             
@@ -35,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // 1. Ao clicar em links do menu
         document.querySelectorAll('.menubar a').forEach(link => {
             link.addEventListener('click', () => {
-                console.log('Link do menu clicado');
                 if (menubar.classList.contains('active')) {
                     menubar.classList.remove('active');
                     hamburger.classList.remove('hamburger-active');
@@ -51,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const isClickOnHamburger = hamburger.contains(e.target);
                 
                 if (!isClickInsideMenu && !isClickOnHamburger) {
-                    console.log('Clicou fora do menu, fechando...');
                     menubar.classList.remove('active');
                     hamburger.classList.remove('hamburger-active');
                     document.body.style.overflow = '';
@@ -62,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // 3. Com tecla ESC
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && menubar.classList.contains('active')) {
-                console.log('ESC pressionado, fechando menu');
                 menubar.classList.remove('active');
                 hamburger.classList.remove('hamburger-active');
                 document.body.style.overflow = '';
@@ -72,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // 4. Ao redimensionar para desktop
         function handleResize() {
             if (window.innerWidth > 768 && menubar.classList.contains('active')) {
-                console.log('Redimensionou para desktop, fechando menu');
                 menubar.classList.remove('active');
                 hamburger.classList.remove('hamburger-active');
                 document.body.style.overflow = '';
@@ -94,10 +83,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         window.addEventListener('resize', debounce(handleResize, 250));
         
-    } else {
-        console.error('Elementos do menu não encontrados!');
-        console.log('Procurando hamburger:', document.querySelector('.hamburger'));
-        console.log('Procurando menubar:', document.querySelector('.menubar'));
     }
     
     // ===== SCROLL EFFECT =====
