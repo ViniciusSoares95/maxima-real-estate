@@ -1,0 +1,289 @@
+/* ===========================================
+   SEÇÃO DE LOGOS - MAXIMA REAL ESTATE
+   =========================================== */
+@font-face {
+    font-family: 'Nexa XBold';
+    src: url('./assets/fonts/Nexa-XBold.woff2') format('woff2'),
+        url('./assets/fonts/Nexa-XBold.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nexa black';
+    src: url('./assets/fonts/NexaBlack.woff2') format('woff2'),
+        url('./assets/fonts/NexaBlack.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nexa Regular';
+    src: url('./assets/fonts/Nexa-Regular.woff2') format('woff2'),
+        url('./assets/fonts/Nexa-Regular.woff') format('woff');
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    /* Colors - Padronizados */
+    --color-primary: #D8CFAA;
+    --color-dark: #252525;
+    --color-light: #ffffff;
+    --transition: 0.3s ease;
+    
+    /* Cores específicas dos logos */
+    --logos-bg-dark: #0a0a0a;
+    --logos-border: rgba(216, 207, 170, 0.1);
+    --logos-overlay: rgba(255, 255, 255, 0.03);
+    
+    /* Velocidade do carrossel - AJUSTADA PARA MAIS RÁPIDO */
+    --carrossel-velocidade-normal: 80s;  /* De 30s para 15s - 2x mais rápido */
+    --carrossel-velocidade-reverse: 80s; /* De 30s para 17s - quase 2x mais rápido */
+}
+
+/* Seção de Logos */
+.maxima-logos-section {
+    padding: 30px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.maxima-logos-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+}
+
+.maxima-logos-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Título da Seção */
+.logos-section-title {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.logos-section-title h2 {
+    font-family: 'Nexa black', Montserrat, sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+}
+
+/* Container do Carrossel */
+.logos-carousel-wrapper {
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.logos-carousel-wrapper::before,
+.logos-carousel-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.logos-carousel-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, var(--color-dark), transparent);
+}
+
+.logos-carousel-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, var(--color-dark), transparent);
+}
+
+/* Track do Carrossel */
+.logos-track {
+    display: flex;
+    width: fit-content;
+    animation: scrollLogos var(--carrossel-velocidade-normal) linear infinite;
+    gap: 40px;
+    padding: 0 20px;
+    will-change: transform; /* Otimização de performance */
+}
+
+.logos-track.reverse {
+    animation: scrollLogosReverse var(--carrossel-velocidade-reverse) linear infinite;
+}
+
+/* Item do Logo */
+.logo-item {
+    flex: 0 0 400px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: var(--logos-overlay);
+    border: 1px solid var(--logos-border);
+    transition: all var(--transition);
+    border-radius: 8px;
+    backface-visibility: hidden; /* Melhora performance da animação */
+}
+
+.logo-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(216, 207, 170, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.logo-item a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.logo-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(1.5);
+    transition: filter var(--transition);
+    backface-visibility: hidden; /* Melhora performance da animação */
+}
+
+.logo-item:hover img {
+    filter: grayscale(0%) brightness(1);
+}
+
+/* Animações - MAIS RÁPIDAS */
+@keyframes scrollLogos {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scrollLogosReverse {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Pausa animação ao hover */
+.logos-carousel-wrapper:hover .logos-track {
+    animation-play-state: paused;
+}
+
+/* Efeito de transição suave quando pausa/retoma */
+.logos-track {
+    transition: animation-play-state 0.3s ease;
+}
+
+/* Mensagem quando não há logos */
+.no-logos-message {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--color-primary);
+    font-size: 1.2rem;
+}
+
+/* Responsivo - Ajustar velocidade no mobile também */
+@media (max-width: 768px) {
+    :root {
+        --carrossel-velocidade-normal: 80s;  /* Ainda mais rápido no mobile */
+        --carrossel-velocidade-reverse: 80s;
+    }
+    
+    .maxima-logos-section {
+        padding: 60px 0;
+    }
+    
+    .logos-section-title h2 {
+        font-size: 1.6rem;
+    }
+    
+    .logo-item {
+        flex: 0 0 300px;
+        height: 150px;
+        padding: 15px;
+    }
+    
+    .logos-track {
+        gap: 20px;
+        padding: 0 10px;
+    }
+    
+    .logos-carousel-wrapper::before,
+    .logos-carousel-wrapper::after {
+        width: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --carrossel-velocidade-normal: 80s;  /* Muito rápido no mobile pequeno */
+        --carrossel-velocidade-reverse: 80s;
+    }
+    
+    .logo-item {
+        flex: 0 0 250px;
+        height: 125px;
+        padding: 10px;
+    }
+    
+    .logos-section-title h2 {
+        font-size: 1.6rem;
+    }
+    
+}
+
+/* Para telas muito pequenas */
+@media (max-width: 320px) {
+    .logo-item {
+        flex: 0 0 200px;
+        height: 100px;
+    }
+}
+
+/* Suporte para modo escuro/claro do sistema */
+@media (prefers-color-scheme: light) {
+    .maxima-logos-section {
+        background-color: #f5f5f5;
+    }
+    
+    .logos-carousel-wrapper::before {
+        background: linear-gradient(to right, #f5f5f5, transparent);
+    }
+    
+    .logos-carousel-wrapper::after {
+        background: linear-gradient(to left, #f5f5f5, transparent);
+    }
+    
+    .logo-item {
+        background-color: rgba(255, 255, 255, 0.9);
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    .logo-item:hover {
+        background-color: rgba(255, 255, 255, 1);
+    }
+    
+    .logos-section-title h2 {
+        color: var(--color-dark);
+    }
+}

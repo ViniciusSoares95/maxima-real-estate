@@ -735,7 +735,7 @@ body {
 }
 
 .about-content h2 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nexa black', sans-serif;
     font-size: var(--h2-desktop);
     line-height: var(--line-height-h2);
     font-weight: 900;
@@ -746,7 +746,7 @@ body {
 }
 
 .about-content p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nexa Regular', sans-serif;
     font-size: var(--paragraph-desktop);
     line-height: var(--line-height-paragraph);
     color: var(--color-light);

@@ -1,4 +1,22 @@
 <?php
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+/**
+ * Incluir arquivos da galeria
+ */
+require_once get_template_directory() . '/includes/gallerycpt/class-gallery-cpt.php';
+require_once get_template_directory() . '/includes/gallerycpt/class-gallery-shortcode.php';
+require_once get_template_directory() . '/includes/gallerycpt/class-gallery-admin.php';
+require_once get_template_directory() . '/includes/gallerycpt/class-gallery-ajax.php';
+
+/**
+ * Incluir arquivos dos Logos
+ */
+require_once get_template_directory() . '/includes/logoscpt/class-logos-cpt.php';
+require_once get_template_directory() . '/includes/logoscpt/class-logos-shortcode.php';
+require_once get_template_directory() . '/includes/logoscpt/class-logos-admin.php';
 
 function maxima_scripts()
 {
@@ -6,6 +24,9 @@ function maxima_scripts()
     wp_enqueue_style('bootstrap', 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css', [], '5.3.2');
     wp_enqueue_style('fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', [], '6.4.0');
     wp_enqueue_style('maxima-style', get_stylesheet_uri(), array(), null, 'all');
+    wp_enqueue_style('gallery-style', get_template_directory_uri() . '/assets/css/gallery.css', array(), null, 'all');
+    // CSS dos Logos
+    wp_enqueue_style('logos-style', get_template_directory_uri() . '/assets/css/logos.css', array(), null, 'all');
 
     // JS - USANDO A VERSÃO NATIVA DO JQUERY DO WORDPRESS
     wp_enqueue_script('jquery'); // Carrega o jQuery do WordPress
@@ -13,6 +34,38 @@ function maxima_scripts()
     
     // JavaScript principal - DEPENDE do jQuery
     wp_enqueue_script('maxima-main-js', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), '1.0.0', true);
+
+     // JavaScript da galeria - SEMPRE carregar
+    $gallery_js_path = get_template_directory() . '/assets/js/gallery.js';
+    if (file_exists($gallery_js_path)) {
+        wp_enqueue_script(
+            'maxima-gallery-js',
+            get_template_directory_uri() . '/assets/js/gallery.js',
+            array('jquery'),
+            '1.0.0',
+            true
+        );
+
+// JavaScript dos Logos - carrega apenas se necessário
+    if (is_page() || is_single()) {
+        $logos_js_path = get_template_directory() . '/assets/js/logos.js';
+        if (file_exists($logos_js_path)) {
+            wp_enqueue_script(
+                'maxima-logos-js',
+                get_template_directory_uri() . '/assets/js/logos.js',
+                array('jquery'),
+                '1.0.0',
+                true
+            );
+        }
+    }
+        
+        // Localizar script com dados
+        wp_localize_script('maxima-gallery-js', 'maximaGallery', array(
+            'ajax_url' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('maxima_gallery_nonce')
+        ));
+    }
 }
 
 add_action('wp_enqueue_scripts', 'maxima_scripts');
@@ -37,6 +90,14 @@ function maxima_config()
 
     // Adicionar suporte a post thumbnails
     add_theme_support('post-thumbnails');
+
+     // Tamanhos de imagem para a galeria
+    add_image_size('maxima-gallery-thumb', 400, 300, true);
+    add_image_size('maxima-gallery-large', 1200, 800, true);
+
+    // Tamanhos de imagem para os logos
+    add_image_size('maxima-logo-thumb', 400, 200, false); // Tamanho padrão para exibição
+    add_image_size('maxima-logo-large', 800, 400, false); // Tamanho maior se necessário
 
     // Adicionar logo customizado no tema
     add_theme_support('custom-logo', array(

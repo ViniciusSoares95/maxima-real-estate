@@ -156,58 +156,13 @@ get_header();
     <!-- Triângulo -->
         <div class="about-section-triangle"></div>
 
-<!-- Portfolio Section -->
-<section class="portfolio-section">
-    <div class="container">
-        <h2>Faça parte do nosso portfólio de elite</h2>
-        <div class="row">
-            <div class="col-6 col-md-3">
-                <div class="partner-logo">
-                    <span style="color: #fff; font-weight: 600; font-size: 18px;">ATACADÃO</span>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="partner-logo">
-                    <span style="color: #fff; font-weight: 600; font-size: 18px;">NISSEI</span>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="partner-logo">
-                    <span style="color: #fff; font-weight: 600; font-size: 18px;">HI CAPITAL</span>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="partner-logo">
-                    <span style="color: #fff; font-weight: 600; font-size: 18px;">CUSHMAN</span>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-6 col-md-3">
-                <div class="partner-logo">
-                    <span style="color: #fff; font-weight: 600; font-size: 18px;">HAVAN</span>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="partner-logo">
-                    <span style="color: #fff; font-weight: 600; font-size: 18px;">GIO</span>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="partner-logo">
-                    <span style="color: #fff; font-weight: 600; font-size: 18px;">FORQUÍMICA</span>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="partner-logo">
-                    <span style="color: #fff; font-weight: 600; font-size: 18px;">SUL AMERICANA</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- Contact Section 
+<?php echo do_shortcode('[maxima_galeria]'); ?>
+
+<!-- Portfolio Section -->
+<?php echo do_shortcode('[maxima_logos]'); ?>
+
+<!-- Contact Section --->
 <section class="contact-section" id="contato">
     <div class="container">
         <h2>FALE CONOSCO</h2>
@@ -227,7 +182,7 @@ get_header();
         </div>
     </div>
 </section>
---->
+
 </main>
 
 <?php get_footer(); ?>
