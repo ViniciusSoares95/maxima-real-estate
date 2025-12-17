@@ -18,6 +18,9 @@ require_once get_template_directory() . '/includes/logoscpt/class-logos-cpt.php'
 require_once get_template_directory() . '/includes/logoscpt/class-logos-shortcode.php';
 require_once get_template_directory() . '/includes/logoscpt/class-logos-admin.php';
 
+require_once get_template_directory() . '/includes/customizer.php';
+
+
 function maxima_scripts()
 {
     // CSS
@@ -66,6 +69,8 @@ function maxima_scripts()
             'nonce' => wp_create_nonce('maxima_gallery_nonce')
         ));
     }
+
+    
 }
 
 add_action('wp_enqueue_scripts', 'maxima_scripts');
@@ -121,3 +126,120 @@ function maxima_config()
     add_theme_support('title-tag');
 }
 add_action('after_setup_theme', 'maxima_config');
+
+/**
+ * Helper function para obter a URL do vídeo MP4
+ */
+function get_video_sobre_mp4() {
+    $tipo = get_theme_mod('video_sobre_tipo', 'upload');
+    $video_mp4 = '';
+    
+    if ($tipo === 'upload') {
+        $mp4_id = absint(get_theme_mod('video_sobre_mp4_upload', 0));
+        if ($mp4_id > 0) {
+            $video_mp4 = esc_url(wp_get_attachment_url($mp4_id));
+        }
+    } else {
+        $video_mp4 = esc_url(get_theme_mod('video_sobre_mp4_url', ''));
+    }
+    
+    return $video_mp4;
+}
+
+/**
+ * Helper function para obter a URL do vídeo WebM
+ */
+function get_video_sobre_webm() {
+    $tipo = get_theme_mod('video_sobre_tipo', 'upload');
+    $video_webm = '';
+    
+    if ($tipo === 'upload') {
+        $webm_id = absint(get_theme_mod('video_sobre_webm_upload', 0));
+        if ($webm_id > 0) {
+            $video_webm = esc_url(wp_get_attachment_url($webm_id));
+        }
+    } else {
+        $video_webm = esc_url(get_theme_mod('video_sobre_webm_url', ''));
+    }
+    
+    return $video_webm;
+}
+
+/**
+ * Helper function para obter a URL da imagem poster
+ */
+function get_video_sobre_poster() {
+    $poster_id = absint(get_theme_mod('video_sobre_poster', 0));
+    if ($poster_id > 0) {
+        return esc_url(wp_get_attachment_url($poster_id));
+    }
+    return '';
+}
+
+/**
+ * Verifica se deve exibir o vídeo
+ */
+function should_display_video_sobre() {
+    $ativo = wp_validate_boolean(get_theme_mod('video_sobre_ativo', true));
+    $mobile = wp_validate_boolean(get_theme_mod('video_sobre_mobile', true));
+    
+    if (!$ativo) {
+        return false;
+    }
+    
+    // Verificar se está em dispositivo móvel
+    if (wp_is_mobile() && !$mobile) {
+        return false;
+    }
+    
+    // Verificar se há vídeo configurado
+    $mp4 = get_video_sobre_mp4();
+    $webm = get_video_sobre_webm();
+    
+    return !empty($mp4) || !empty($webm);
+}
+
+/**
+ * Obter URL do vídeo padrão do tema
+ */
+function get_video_default_mp4() {
+    return esc_url(get_template_directory_uri() . '/assets/videos/sobre-maxima.mp4');
+}
+
+function get_video_default_webm() {
+    return esc_url(get_template_directory_uri() . '/assets/videos/sobre-maxima.webm');
+}
+
+/**
+ * ============================================
+ * GET VIDEO DATA - FUNÇÃO PRINCIPAL
+ * Similar à sua função get_onde_comprar_data()
+ * ============================================
+ */
+function get_video_sobre_data() {
+    $video_data = array(
+        'ativo'          => should_display_video_sobre(),
+        'mp4'            => get_video_sobre_mp4(),
+        'webm'           => get_video_sobre_webm(),
+        'poster'         => get_video_sobre_poster(),
+        'mobile'         => wp_validate_boolean(get_theme_mod('video_sobre_mobile', true)),
+        'fallback_default' => wp_validate_boolean(get_theme_mod('video_fallback_default', true)),
+        'tipo'           => get_theme_mod('video_sobre_tipo', 'upload'),
+    );
+    
+    // Aplicar fallback padrão se necessário
+    if ($video_data['fallback_default']) {
+        if (empty($video_data['mp4'])) {
+            $video_data['mp4'] = get_video_default_mp4();
+        }
+        if (empty($video_data['webm'])) {
+            $video_data['webm'] = get_video_default_webm();
+        }
+    }
+    
+    // Verificar se tem vídeo
+    $video_data['has_video'] = !empty($video_data['mp4']) || !empty($video_data['webm']);
+    
+    return $video_data;
+}
+

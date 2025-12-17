@@ -128,7 +128,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 10px;
     background-color: var(--logos-overlay);
     border: 1px solid var(--logos-border);
     transition: all var(--transition);
@@ -147,14 +147,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     text-decoration: none;
 }
 
 .logo-item img {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 90%;
+    max-height: 90%;
     object-fit: contain;
     filter: grayscale(100%) brightness(1.5);
     transition: filter var(--transition);
@@ -203,6 +203,19 @@
 }
 
 /* Responsivo - Ajustar velocidade no mobile também */
+
+@media screen and (max-width: 1280px) {
+    .logos-section-title h2 {
+        font-size: 29px;
+    }
+}
+
+@media screen and (max-width: 884px) {
+     .logos-section-title h2 {
+        font-size: 1.6;
+    }
+}
+
 @media (max-width: 768px) {
     :root {
         --carrossel-velocidade-normal: 80s;  /* Ainda mais rápido no mobile */
@@ -212,7 +225,7 @@
     .maxima-logos-section {
         padding: 60px 0;
     }
-    
+
     .logos-section-title h2 {
         font-size: 1.6rem;
     }

@@ -162,26 +162,7 @@ get_header();
 <!-- Portfolio Section -->
 <?php echo do_shortcode('[maxima_logos]'); ?>
 
-<!-- Contact Section --->
-<section class="contact-section" id="contato">
-    <div class="container">
-        <h2>FALE CONOSCO</h2>
-        <div class="contact-box">
-            <div class="contact-item">
-                <i class="fab fa-instagram"></i>
-                <span>@maximarealestate_</span>
-            </div>
-            <div class="contact-item">
-                <i class="fab fa-whatsapp"></i>
-                <span>44 3029-5999</span>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-globe"></i>
-                <span>www.maximaemp.com.br</span>
-            </div>
-        </div>
-    </div>
-</section>
+ <?php get_template_part('templates/contact', 'section') ?>
 
 </main>
 

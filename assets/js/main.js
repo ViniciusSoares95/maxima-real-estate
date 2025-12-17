@@ -130,3 +130,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+/**
+ * Video Background Autoplay Helper
+ * Garante que o vídeo dê play mesmo em navegadores restritivos
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    const videos = document.querySelectorAll('.hero-video');
+    
+    videos.forEach(video => {
+        // Tentar play automático
+        const playPromise = video.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                console.log('Autoplay bloqueado pelo navegador');
+                
+                // Tentar dar play quando o usuário interagir com a página
+                const playOnInteraction = () => {
+                    video.play();
+                    document.removeEventListener('click', playOnInteraction);
+                    document.removeEventListener('touchstart', playOnInteraction);
+                    document.removeEventListener('keydown', playOnInteraction);
+                };
+                
+                document.addEventListener('click', playOnInteraction);
+                document.addEventListener('touchstart', playOnInteraction);
+                document.addEventListener('keydown', playOnInteraction);
+            });
+        }
+    });
+});
